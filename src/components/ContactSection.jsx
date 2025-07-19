@@ -12,21 +12,43 @@ import { cn } from "@/lib/utils";
 import { useToast } from "../hooks/use-toast";
 import { Title } from "@radix-ui/react-toast";
 import { useState } from "react";
+import emailjs from "emailjs-com";
 
 export const ContactSection = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
-      toast({
-        title: "Message sent!",
-        description: "Thank you for your message. I'll get back to you soon.",
-      });
-      setIsSubmitting(false);
-    }, 1500);
+
+    emailjs
+      .sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        e.target,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
+      .then(
+        (result) => {
+          toast({
+            title: "Message sent!",
+            description:
+              "Thank you for your message. I'll get back to you soon.",
+          });
+          setIsSubmitting(false);
+          e.target.reset(); // reset form
+        },
+        (error) => {
+          toast({
+            title: "Error",
+            description: "Something went wrong. Please try again later.",
+          });
+          setIsSubmitting(false);
+        }
+      );
   };
+
   return (
     <section id="contact" className="py-24 px-4 relative bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
@@ -34,8 +56,9 @@ export const ContactSection = () => {
           Get In <span className="text-primary">Touch</span>
         </h2>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Have a project in mind or want to collaborate? Feel free to reach out.
-          I'm always open to discussing new opportunities.
+          Interested in working together or discussing a new project? I’m always
+          open to professional opportunities, collaborations, or sharing ideas.
+          Feel free to reach out — let’s build something meaningful.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div className="space-y-8">
@@ -51,7 +74,7 @@ export const ContactSection = () => {
                     href="mailto:hello@gmail.com"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    hello@gmail.com
+                    emmanueljdev11@gmail.com
                   </a>
                 </div>
               </div>
@@ -84,17 +107,8 @@ export const ContactSection = () => {
             <div className="pt-8">
               <h4 className="font-medium mb-4">Connect With Me</h4>
               <div className="flex space-x-4 justify-center">
-                <a href="#" target="_blank">
+                <a href="https://www.linkedin.com/in/emmanuel-johnson-dev/" target="_blank">
                   <Linkedin />
-                </a>
-                <a href="#" target="_blank">
-                  <Twitter />
-                </a>
-                <a href="#" target="_blank">
-                  <Instagram />
-                </a>
-                <a href="#" target="_blank">
-                  <Twitch />
                 </a>
               </div>
             </div>
@@ -154,7 +168,7 @@ export const ContactSection = () => {
               </div>
               <button
                 type="submit"
-                disabled = {isSubmitting}
+                disabled={isSubmitting}
                 className={cn(
                   "cosmic-button w-full flex items-center justify-center gap-2"
                 )}

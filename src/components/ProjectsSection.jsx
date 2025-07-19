@@ -3,32 +3,33 @@ import { ArrowRight, ExternalLink, Github } from "lucide-react";
 const projects = [
   {
     id: 1,
-    title: "SaaS Landing Page",
-    description: "A beautiful landing page app using React and Tailwind.",
-    image: "/projects/project_1.png",
-    tags: ["React", "TailwindCSS", "Supabase"],
-    demoUrl: "#",
-    githubUrl: "#",
+    title: "E-Commerce Platform",
+    description:
+      "A scalable e-commerce system with product management, admin dashboard, user login, and smooth checkout.",
+    image: "/projects/ecommerce.jpeg",
+    tags: ["Python", "Django", "SQL", "HTML", "CSS", "JavaScript"],
+    demoUrl: "https://www.amazon.in/",
+    githubUrl: "https://github.com/Emmanuel-Johnson",
   },
   {
     id: 2,
-    title: "Orbit Analytics Dashboard",
+    title: "Job Portal System",
     description:
-      "Interactive analytics dashboard with data visualization and filtering capabilities.",
-    image: "/projects/project_2.png",
-    tags: ["TypeScript", "D3.js", "Next.js"],
-    demoUrl: "#",
-    githubUrl: "#",
+      "A feature-rich job portal connecting employers and candidates, with admin control, filtering, and analytics.",
+    image: "/projects/job_portal.jpeg",
+    tags: ["Python", "Django", "DRF", "SQL", "React", "TypeScript", "Tailwind"],
+    demoUrl: "https://www.linkedin.com/",
+    githubUrl: "https://github.com/Emmanuel-Johnson",
   },
   {
     id: 3,
-    title: "E-commerce Platform",
+    title: "Blog Management App",
     description:
-      "Full-featured e-commerce platform with user authentication and payment processing.",
-    image: "/projects/project_3.png",
-    tags: ["React", "Node.js", "Stripe"],
-    demoUrl: "#",
-    githubUrl: "#",
+      "A clean, user-friendly blog app with post creation, tagging, comment system, and admin moderation tools.",
+    image: "/projects/blog_app.png",
+    tags: ["Python", "Django","DRF", "React", "Tailwind", "REST API"],
+    demoUrl: "https://dev.to/",
+    githubUrl: "https://github.com/Emmanuel-Johnson",
   },
 ];
 
@@ -41,8 +42,7 @@ export const ProjectsSection = () => {
           Featured <span className="text-primary">Projects</span>
         </h2>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Here are some of my recent projects. Each project was carefully
-          crafted with attention to detail, performance, and user experience.
+          Here are some of my recent projects, thoughtfully built with a strong focus on performance, clean code, and a smooth user experience.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, key) => (
