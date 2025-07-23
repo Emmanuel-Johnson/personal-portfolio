@@ -116,7 +116,7 @@ export const Navbar = () => {
               </a>
             ))}
             {/* Mobile theme toggle */}
-            <button
+            {/* <button
               onClick={() => {
                 toggleTheme();
                 setIsMenuOpen(false);
@@ -126,7 +126,7 @@ export const Navbar = () => {
             >
               {isDark ? <Sun size={20} /> : <Moon size={20} />}
               <span>Theme</span>
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
