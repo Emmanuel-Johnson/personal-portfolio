@@ -76,13 +76,13 @@ export const Navbar = () => {
             </a>
           ))}
           {/* Desktop theme toggle */}
-          <button
+          {/* <button
             onClick={toggleTheme}
             className="p-2 text-foreground/80 hover:text-primary transition-colors duration-300"
             aria-label="Toggle Theme"
           >
             {isDark ? <Sun size={20} /> : <Moon size={20} />}
-          </button>
+          </button> */}
         </div>
 
         {/* Mobile menu button */}
